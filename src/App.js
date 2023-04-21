@@ -1,49 +1,56 @@
-import logo from './logo.svg';
 import './App.css';
-import Button from 'react-bootstrap/Button';
 import { useState } from 'react';
-import { Routes, Route, Link } from 'react-router-dom'
+import { Routes, Route, Link, Navigate  } from 'react-router-dom'
 import Main from './Main';
+import Container from 'react-bootstrap/Container';
+import Nav from 'react-bootstrap/Nav';
+import Navbar from 'react-bootstrap/Navbar';
+import data from './Data';
+import DailyWod from './DailyPage';
+
+
 
 
 function App() {
 
-  let [mainBtnColor, setMainBtnColor] = useState('#FFFFFF');
-  let [textColor, setTextColor] = useState('#F37116');
-
-
-  const handleMouseEnter = ()=>{
-    setMainBtnColor('#F37116');
-    setTextColor('#FFFFFF');
-    
-  };
-  
-  const handleMouseLeave = ()=>{
-    setMainBtnColor('#FFFFFF');
-    setTextColor('#F37116');
-  }
-  
-  
+   
   return (
     <div className="App">
-      <div className='container'>
-        <img className='logo1' src='./crossfitable.jpg'></img>
-        <div>
-          <Link to={"/Main"}>
-          <button className='munjung-btn' style={{ backgroundColor:mainBtnColor, color: textColor}} 
-          onMouseEnter={handleMouseEnter}
-          onMouseLeave={handleMouseLeave} >문정점</button>
-          </Link>
+
+    <Navbar className='nav-bar' bg="white" variant="light">
+        <img className='mainlogo1' src='./crossfitable.jpg' ></img>
+        <Container className='nav-container'>
+          <Navbar.Brand href="/">Crossfit ABle</Navbar.Brand>
+          <Nav className="me-auto">
+            <Nav.Link href="/Daily">WOD</Nav.Link>
+            <Nav.Link href="#features">Record</Nav.Link>
+            <Nav.Link href="#pricing">Ranking</Nav.Link>
+          </Nav>
+        </Container>
+        <div>Login 할 자리</div>
+      </Navbar>
+
+
+      <Routes>
+
+        <Route path='/' element={
+          <div className='container-bg'>
+          <img className='main-bg' src='./AbleBackground.jpg' ></img>
+          <h1>알고리즘을 따라</h1>
+          <h2>이것을 만들었노라</h2>
+          <div>본문에 들어가기 앞서</div>
         </div>
-      </div>
-      <>
-        <Routes>
-        <Route path='/' element={<div>시작페이지임</div>}></Route>
+        
+        }></Route>
+
+
+        <Route path='/Daily' element={<DailyWod/>}></Route>
       </Routes>
-      </>
+   
+      
+    
     </div>
   );
 }
-
 
 export default App;

@@ -6,14 +6,33 @@
   height: 40vmin;
   pointer-events: none;
 }
-.logo1{        /*메인 화면 로고이미지*/         
+.logo1{        /*Home 화면 로고이미지*/         
   width: 300px;
    height: 300px;
    object-fit: cover;
 }
+.mainlogo1{ /*Main 화면 로고이미지*/
+  margin-left: 10px;
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+}
+.daily-wod-list {
 
-
-.munjung-btn{    /*메인 화면 로고이미지*/  
+}
+.daily-wod-list .list-group-item.active {
+  /*DailyWod 페이지 버튼 색상 변경*/
+  background-color: #F37116;
+  border-color: white;
+}
+.wod-collabse-btn {
+  background-color: #F37116;
+  border-color: white;
+}
+.nav-container{
+  margin: 0 5px;
+}
+.munjung-btn{    /*Home 페이지 버튼*/  
   align-items: center;
   height: 50px;
   width: 100px;
@@ -24,11 +43,12 @@
   cursor: pointer;
 }
 
-
-
-
-
-
+.main-bg{
+  height: 300px;
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+}
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
